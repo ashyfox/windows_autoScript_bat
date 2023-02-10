@@ -12,3 +12,6 @@ if %computername%==%template_name% (
     netdom join %result% /domain:ADdomain /userd:"ADadmin" /passwordd:"password" /REBoot  # domain: AD domain， used:  AD 管理員，passwordd: AD 管理員密碼
     echo start join domain
 )
+
+
+# 另外注意 Instance 總長度不能超過 15，空格要注意，註解地方不要貼。
