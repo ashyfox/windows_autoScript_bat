@@ -1,0 +1,22 @@
+@echo off
+echo %USERDOMAIN% > domaincheck.txt
+set /p domain=<domaincheck.txt
+if "%domain%"=="mad.local" (
+    echo the domain is already join
+) else (
+    netdom join %computername% /domain:mad.local /userd:setupadmin /passwordd:"OFh5_32e2__BOap" /REBoot > C:\Windows\System32\Accesscheck.txt
+    for /f "delims=" %%a in (Accesscheck.txt) do (
+        set "check_line=%%a"
+        goto break
+    )
+    :break
+    if "%check_line%" =="Access is denied." (
+	    echo Please Use admin command
+	    pause
+    ) else (
+	    echo Success
+	    pause
+    )   
+)
+
+#不能使用 admin 廢棄
