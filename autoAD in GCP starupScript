@@ -6,4 +6,4 @@ echo %result% > compute_name.txt
 
 set newName=%result%
 wmic computersystem where caption='%computername%' call rename name='%newName%'
-netdom join %result% /domain:mad.local /userd:setupadmin /passwordd:"OFh5_32e2__BOap" /REBoot
+netdom join %result% /domain:mad.local /userd:"ADadmin" /passwordd:"password" /REBoot #userd : AD 管理員，passwordd : AD 管理員密碼
