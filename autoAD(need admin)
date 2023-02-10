@@ -4,7 +4,7 @@ set /p domain=<domaincheck.txt
 if "%domain%"=="mad.local" (
     echo the domain is already join
 ) else (
-    netdom join %computername% /domain:mad.local /userd:setupadmin /passwordd:"OFh5_32e2__BOap" /REBoot > C:\Windows\System32\Accesscheck.txt
+    netdom join %computername% /domain:mad.local /userd:ADadmin /passwordd:"password" /REBoot > C:\Windows\System32\Accesscheck.txt
     for /f "delims=" %%a in (Accesscheck.txt) do (
         set "check_line=%%a"
         goto break
