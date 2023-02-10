@@ -1,7 +1,8 @@
 @echo off
 for /f "tokens=*" %%a in ('
 curl -H Metadata-Flavor:Google http://metadata/computeMetadata/v1/instance/hostname') do set "string=%%a"
-for /f "tokens=1-3 delims=-." %%a in ("%string%") do set result=%%a-%%b-%%c
+#for /f "tokens=1-3 delims=-." %%a in ("%string%") do set result=%%a-%%b-%%c
+for /f "tokens=1 delims=." %%a in ("%string%") do set result=%%a
 echo %result% > compute_name.txt
 
 set newName=%result%
