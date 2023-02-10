@@ -1,0 +1,18 @@
+@echo off
+rem =#
+set n=10
+rem n=3 means to generate 3 random strings, such as 10 modifications n=10
+setlocal enabledelayedexpansion
+rem turns on variable delay
+set str=abcdefghijklmnopqrstuvwxyz0123456789
+for /l %%a in (1,1,%n%) do call :slz "%%a"
+rem for loops n times, because each loop gets 1 random string, n times is n random strings
+echo %random_str%
+pause
+
+:slz
+if "%~1"=="" goto:eof
+set /a r=%random%%%36
+rem Generate random numbers less than 36 (26 letters plus 10 numbers equal to 36 are well understood)
+set random_str=%random_str%!str:~%r%,1!
+rem Character variable interception and merging
